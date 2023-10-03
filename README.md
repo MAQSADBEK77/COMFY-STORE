@@ -1,6 +1,8 @@
 # Comfy Store is a project made using Redux toolkit.
 
-In this project I used technologies like Vite, React, React redux toolkit, TailwindCSS, DaisyUI
+In this project I used technologies like Vite, React, React redux toolkit, TailwindCSS, DaisyUI (❁´◡`❁)
+
+This project was carried out by the Najot ta'lim Training Center.
 
 🧑‍💻How do I use this project?
 
