@@ -4,12 +4,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
   About,
   Cart,
-  Checkout,
   Error,
   HomeLayout,
   Landing,
   Login,
-  Orders,
   Products,
   Register,
   SingleProduct,
@@ -36,10 +34,6 @@ function App() {
           element: <About />,
         },
         {
-          path: "orders",
-          element: <Orders />,
-        },
-        {
           path: "products",
           element: <Products />,
           errorElement: <ErrorElement />,
@@ -54,10 +48,6 @@ function App() {
         {
           path: "cart",
           element: <Cart />,
-        },
-        {
-          path: "checkout",
-          element: <Checkout />,
         },
       ],
     },

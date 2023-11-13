@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 const defaultState = {
   cartItems: [],
   numItemInCart: 0,
-  cardTotal: 0,
+  cartTotal: 0,
   shipping: 0,
   tax: 0, //10%
   orderTotal: 0,
@@ -24,24 +24,35 @@ const cartSlice = createSlice({
         state.cartItems.push(product);
       }
       state.numItemInCart += product.amount;
-      state.cardTotal += product.price * product.amount;
+      state.cartTotal += product.price * product.amount;
       cartSlice.caseReducers.calculateTotals(state);
       toast.success("Item added to cart");
     },
-    clearCart: (state, action) => {},
+    clearCart: (state) => {
+      localStorage.setItem("cart", JSON.stringify(defaultState));
+      return defaultState;
+    },
     removeItem: (state, action) => {
       const { cartID } = action.payload;
       const product = state.cartItems.find((i) => i.cartID === cartID);
       state.cartItems = state.cartItems.filter((i) => i.cartID !== cartID);
-      state.numItemsInCart -= product.amount;
+      state.numItemInCart -= product.amount;
       state.cartTotal -= product.price * product.amount;
       cartSlice.caseReducers.calculateTotals(state);
       toast.error("Item removed from cart");
     },
-    editItem: (state, action) => {},
+    editItem: (state, action) => {
+      const { cartID, amount } = action.payload;
+      const item = state.cartItems.find((i) => i.cartID === cartID);
+      state.numItemInCart += amount - item.amount;
+      state.cartTotal += item.price * (amount - item.amount);
+      item.amount = amount;
+      cartSlice.caseReducers.calculateTotals(state);
+      toast.success("Cart updated");
+    },
     calculateTotals: (state) => {
-      state.tax = 0.1 * state.cardTotal;
-      state.orderTotal = state.cardTotal + state.shipping + state.tax;
+      state.tax = 0.1 * state.cartTotal;
+      state.orderTotal = state.cartTotal + state.shipping + state.tax;
       localStorage.setItem("cart", JSON.stringify(state));
     },
   },
