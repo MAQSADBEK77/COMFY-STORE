@@ -1,8 +1,18 @@
-# React + Vite
+# Comfy Store is a project made using Redux toolkit.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this project I used technologies like Vite, React, React redux toolkit, TailwindCSS, DaisyUI (❁´◡`❁)
 
-Currently, two official plugins are available:
+This project was carried out by the Najot ta'lim Training Center.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧑‍💻How do I use this project?
+
+1. Download this project clone to your computer. For example in .zip format.
+
+2. Open the project folder in any terminal.
+
+3. Type npm install in the terminal and wait for a while.
+
+4. After npm has finished installing the packages, type npm run dev in the terminal.
+
+5. The terminal will show you a special url, open it in any browser.
+
